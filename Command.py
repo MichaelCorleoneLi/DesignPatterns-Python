@@ -1,6 +1,8 @@
 #参考文件：  https://zhuanlan.zhihu.com/p/25086524
 #           http://blog.csdn.net/u010843114/article/details/47857591
 
+from abc import ABCMeta,abstractmethod
+
 class Receiver:
     '''命令执行者(烧烤师傅)'''
     def yangrouchuan(self):
@@ -10,8 +12,13 @@ class Receiver:
 
 class Command:
     '''命令父类'''
+
+    __metaclass__ = ABCMeta
+
     def __init__(self, receiver):
         self.receiver = receiver
+
+    @abstractmethod
     def excute(self):
         pass
 
@@ -20,8 +27,9 @@ class yangrouchuanCommand(Command):
         self.receiver.yangrouchuan()
 
 class jichiCommand(Command):
-    def excute(self):
-        self.receiver.jichi()
+    pass
+    # def excute(self):
+    #     self.receiver.jichi()
 
 class Invoker:
     '''调用者'''
