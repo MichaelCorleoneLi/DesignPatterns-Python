@@ -27,9 +27,8 @@ class yangrouchuanCommand(Command):
         self.receiver.yangrouchuan()
 
 class jichiCommand(Command):
-    pass
-    # def excute(self):
-    #     self.receiver.jichi()
+    def excute(self):
+        self.receiver.jichi()
 
 class Invoker:
     '''调用者'''
